@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul id="people"></ul>
+    <script>
+      //Javascript Object
+      //   var person = {
+      //     name: "Aysha",
+      //     age: 25,
+      //     address: {
+      //       street: 23,
+      //       road: 812,
+      //     },
+      //     children: ["bob", "ray"],
+      //   };
+      //   console.log(person);
+      //   console.log(person.address.street); //Accessing object properties
+      //   console.log(person.children[0]);
+
+      //JSON Part
+      //   var user = {
+      //     name: "brad",
+      //     age: 25,
+      //   };
+      //   user = JSON.stringify(user.name); //Stringify used for converting an object to json
+      //   user = JSON.parse(user); //To convert from json to javascript object
+      //   console.log(user);
+
+      //   var people = [
+      //     {
+      //       name: "brad",
+      //       age: 23,
+      //     },
+      //     {
+      //       name: "bob",
+      //       age: 22,
+      //     },
+      //     {
+      //       name: "aysha",
+      //       age: 29,
+      //     },
+      //   ];
+      //   //   console.log(people[1].name);
+      //   var output = "";
+      //   for (var i = 0; i < people.length; i++) {
+      //     // console.log(people[i]);
+      //     output += "<li>" + people[i].name + "</li>";
+      //   }
+      //   document.getElementById("people").innerHTML = output;
+
+      //fetch data from json file
+      //   var xhttp = new XMLHttpRequest();
+      //   xhttp.onreadystatechange = function () {
+      //     if (this.readyState == 4 && this.status == 200) {
+      //       console.log(xhttp.responseText);
+      //     }
+      //   };
+      //   xhttp.open("GET", "people.json", true);
+      //   xhttp.send();
+
+      //fetch data from json file
+      // var xhttp = new XMLHttpRequest();
+      // xhttp.onreadystatechange = function () {
+      //   if (this.readyState == 4 && this.status == 200) {
+      //     var response = JSON.parse(xhttp.responseText);
+      //     var people = response.people;
+
+      //     var output = "";
+      //     for (var i = 0; i < people.length; i++) {
+      //       output += "<li>" + people[i].name + "</li>";
+      //     }
+      //     document.getElementById("people").innerHTML = output;
+      //   }
+      // };
+      //method(GET,POST,PUT,DELETE), URL, Asynchronous(true) or Synchronous(false)
+      //xhttp.open("GET", "people.json", true);//Get meaning we want to download or get data, POST meaning we want to send data to a server
+      //xhttp.send();//For GET request its often empty but for post you need to pass data
+      //XMLHttpRequest is a built-in tool in web browser which allows us to establish a connection to a URL that
+      //let us send and receive data which in this case request is send to server
+      //Example#another
+      var ourRequest = new XMLHttpRequest();
+      ourRequest.open(
+        "GET",
+        "https://learnwebcode.github.io/json-example/animals-1.json"
+      );
+      ourRequest.onload = function () {
+        var ourData = JSON.parse(ourRequest.responseText);
+        console.log(ourData[0]);
+      };
+      ourRequest.send();
+    </script>
+  </body>
+</html>
